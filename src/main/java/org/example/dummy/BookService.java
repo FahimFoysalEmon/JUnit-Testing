@@ -1,12 +1,13 @@
-package org.example.fake;
-
-import org.example.dummy.EmailService;
+package org.example.dummy;
 
 public class BookService {
-    private BookRepository bookRepository;
 
-    public BookService(BookRepository bookRepository) {
+    private BookRepository bookRepository;
+    private EmailService emailService;
+
+    public BookService(BookRepository bookRepository, EmailService emailService) {
         this.bookRepository = bookRepository;
+        this.emailService = emailService;
     }
 
     public void addBook(Book book) {
@@ -17,4 +18,5 @@ public class BookService {
         return bookRepository.findAll().size();
     }
 
+    //Other methods which uses EmailService
 }
